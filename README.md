@@ -3,7 +3,7 @@ Lovable 提示詞分享
 ## AegisBot Console
 ### Aegis (神盾) &「資安」背景，象徵守護客戶服務品質與知識安全。
 
-# LineNexus AI - 智慧客服 Line Bot SaaS 管理平台 🚀
+# AegisBot Console AI - 智慧客服 Line Bot SaaS 管理平台 🚀
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)]()
@@ -14,7 +14,7 @@ Lovable 提示詞分享
 
 ## 📖 專案簡介 (Introduction)
 
-**LineNexus AI** 是一個現代化的 SaaS 後端管理系統，旨在幫助企業或個人同時管理多個 Line Bot 智慧客服。它不只是一個聊天機器人，更是一個完整的知識管理與客戶服務解決方案。
+**AegisBot Console AI** 是一個現代化的 SaaS 後端管理系統，旨在幫助企業或個人同時管理多個 Line Bot 智慧客服。它不只是一個聊天機器人，更是一個完整的知識管理與客戶服務解決方案。
 
 透過整合 **AnythingLLM** (RAG 知識庫) 與 **N8N** (自動化流程)，本系統讓 Line Bot 能夠根據專屬文件回答專業問題，並具備無縫的「人工/AI 切換」功能，確保客戶能得到最精準的服務。
 
@@ -63,7 +63,7 @@ Lovable 提示詞分享
 ```mermaid
 graph TD
     User[Line 用戶] -->|發送訊息| LineServer
-    LineServer -->|WebHook| Backend[LineNexus Backend]
+    LineServer -->|WebHook| Backend[AegisBot Console Backend]
     Backend -->|轉發| N8N/AnythingLLM
     N8N/AnythingLLM -->|RAG 檢索| VectorDB
     N8N/AnythingLLM -->|生成回應| LLM

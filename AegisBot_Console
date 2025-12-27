@@ -1,70 +1,87 @@
-# AegisBot Console AI - 智慧客服 Line Bot SaaS 管理平台 🚀
+給 Lovable.dev 的提示詞 (Prompt)
+Project Name: AI Smart Customer Service SaaS Platform (AI 智慧客服 SaaS 管理平台)
+Language: Traditional Chinese (繁體中文)
+Style: Modern, Professional, Clean, Tech-oriented (Suitable for a Cyber Security Studio).
+Core Description:
+Build a SaaS backend management dashboard for a "Line Bot AI Customer Service System". This platform allows users to manage multiple Line Bots. Each bot is linked to a specific domain of knowledge and uses RAG technology to answer customer queries. The UI must be in Traditional Chinese.
+Key Design Principles:
+1. SaaS Architecture: The user interface must support managing a "Pool" of Line Bots.
+2. White Labeling: Do NOT use technical backend names like "AnythingLLM", "N8N", or "Vector DB" in the UI labels. Use user-friendly terms like "Knowledge Base", "Workflow Integration", "AI Brain", or "Extension Tools".
+3. Completeness: Every menu item mentioned below must link to a functional page containing relevant forms, tables, or operation panels.
+Page Structure & Features:
+1. Dashboard (首頁儀表板)
+Create a comprehensive data visualization dashboard containing:
+* Key Metrics (Cards):
+    * Total Token Usage (本月 Token 使用量).
+    * Total Service Messages (總服務訊息數).
+    * Active Users Count (活躍用戶數 - New addition).
+    * Average AI Response Time (平均 AI 回應時間 - New addition).
+* Charts & Lists:
+    * TOP 5 Frequent Questions: A bar chart or list showing the most asked questions.
+    * TOP 5 Knowledge Hits: Which documents/knowledge chunks are cited most often (labeled as "熱門引用資料").
+    * Bot Status Overview: A quick status list of all managed bots (Online/Maintenance/Error).
+    * Recent Alerts: A feed of system warnings or errors.
+2. Navigation Sidebar (功能導覽列)
+Organize the sidebar into logical groups. Ensure each item links to a specific page.
+Group A: Knowledge & AI Core (智慧核心與知識庫)
+* File Management (文件與知識上傳):
+    * UI Label: "知識庫管理" (Knowledge Base).
+    * Page Content: Drag-and-drop area for uploading PDF/TXT/Docx. A list of uploaded files with status (Processing/Embedded). Logic: This connects to the RAG vector store.
+* AI Configuration (AI 參數設定):
+    * UI Label: "AI 模型設定" (AI Settings).
+    * Page Content: Inputs for System Prompt (系統提示詞), Temperature (創意度), and Model Selection (Dropdown).
+* Agent Tools (Agent 設定):
+    * UI Label: "智慧代理人設定" (Agent Settings).
+    * Page Content: Toggle switches to enable specific agent capabilities (e.g., Web Browsing, Calculation).
+* Extension Tools (MCP 設定):
+    * UI Label: "擴充工具管理" (Extension Tools).
+    * Page Content: Interface to configure external context protocols or custom tools without showing "MCP" jargon.
+Group B: Integration & Automation (整合與自動化)
+* Workflow Webhooks (WebHook 設定):
+    * UI Label: "自動化流程串接" (Automation Workflow).
+    * Page Content: Fields to input Webhook URLs for triggering external events.
+* Connection Settings (API 連線設定):
+    * UI Label: "模型連線配置" (Connection Config).
+    * Page Content: Secure fields for API Keys, Base URLs, and Model ID selection.
+Group C: Bot Management (機器人管理)
+* Bot Pool (Line Bot Pool 管理):
+    * UI Label: "機器人列表與狀態" (Bot Pool).
+    * Page Content: A card grid or table showing all Line Bots owned by the user. Options to "Create New Bot", "Pause", or "Delete".
+* Line Configuration (Line Bot 相關設定):
+    * UI Label: "Line 平台串接" (Line Integration).
+    * Page Content: Fields for Channel Access Token, Channel Secret, and Webhook URL generation.
+* Live Chat / Human Takeover (人工回覆介入):
+    * UI Label: "即時客服對話" (Live Chat).
+    * Page Content: (See detailed specs below).
+Group D: Administration (系統管理)
+* Access Control (帳號權限管理):
+    * UI Label: "成員與權限" (Team & Permissions).
+    * Page Content: Invite users, assign roles (Admin, Editor, Viewer).
+* User Profile: Settings for the current user and "Logout" button.
+3. Notifications (訊息提示中心)
+* Top Bar Icon: A bell icon showing:
+    * System Warnings: (e.g., "Token quota low", "Bot disconnected").
+    * Periodic Reports: (e.g., "Weekly summary available").
+4. Detailed Specification for "Live Chat / Human Takeover" Page (人工回覆功能)
+This page is critical for customer support. It should function like a chat application.
+* Layout: Three-column layout.
+    * Left (Chat List): List of active user sessions. Indicators for "AI Replying" (Green) vs "Waiting for Human" (Red). Filter options: "All", "Unread", "Human Handle".
+    * Middle (Chat Window):
+        * Message bubbles (Right: Agent/Human, Left: User).
+        * Different visual style for AI-generated responses vs. Human-typed responses.
+        * "Takeover Toggle" (介入開關): A distinct button to pause the AI for this specific user. When active, AI stops replying, and only the human agent can send messages.
+        * Input area with attachment support.
+    * Right (User Context & Quick Actions):
+        * User Profile (Line Display Name, User ID).
+        * Tags: Add tags like "VIP", "Complaint", "Sales Lead".
+        * Canned Responses: Quick-click buttons for common replies.
+        * Summary: A brief AI-generated summary of the conversation so far.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)]()
-[![RAG Powered](https://img.shields.io/badge/AI-RAG%20Powered-blue)]()
-
-> 由 **台灣資安智慧實驗工作室** 開發與維護。
-> 專為 Line Bot 設計的多租戶 SaaS 客服管理系統，整合 RAG 技術與人工介入機制。
-
-## 📖 專案簡介 (Introduction)
-
-**AegisBot Console AI** 是一個現代化的 SaaS 後端管理系統，旨在幫助企業或個人同時管理多個 Line Bot 智慧客服。它不只是一個聊天機器人，更是一個完整的知識管理與客戶服務解決方案。
-
-透過整合 **AnythingLLM** (RAG 知識庫) 與 **N8N** (自動化流程)，本系統讓 Line Bot 能夠根據專屬文件回答專業問題，並具備無縫的「人工/AI 切換」功能，確保客戶能得到最精準的服務。
-
-### 核心價值
-* **多機器人管理 (Bot Pool)**：單一帳號可管理不同領域的專業客服機器人。
-* **白牌化設計 (White Label)**：後台隱藏複雜技術名詞，給予終端用戶最直觀的操作體驗。
-* **數據驅動**：完整的儀表板，即時監控 Token 用量與問答命中率。
-
----
-
-## ✨ 功能特色 (Features)
-
-### 📊 智慧儀表板 (Dashboard)
-* **關鍵指標**：活躍用戶數、Token 使用量、總訊息數、平均回應時間。
-* **熱門排行**：常見問題 TOP 5、知識庫命中 TOP 5 (了解客戶最關心什麼)。
-* **狀態監控**：即時查看所有 Line Bot 的連線狀態。
-
-### 🧠 知識庫與 AI 核心 (AI & Knowledge)
-* **文件上傳**：支援 PDF/TXT/Docx，自動向量化並傳遞至 RAG 引擎。
-* **模型設定**：自定義 System Prompt、溫度 (Temperature) 與模型選擇。
-* **擴充工具**：彈性設定 Agent 工具與外部 API 連線 (MCP 概念整合)。
-
-### 💬 客服互動系統 (Human-in-the-loop)
-* **即時對話視窗**：類似通訊軟體的介面，查看用戶與 AI 的對話紀錄。
-* **人工介入模式**：一鍵「接手/暫停 AI」，由真人客服直接回覆，避免 AI 干擾。
-* **用戶畫像**：顯示用戶標籤、對話摘要與快速回覆功能。
-
-### ⚙️ 系統管理
-* **Line Bot Pool**：新增、刪除、暫停機器人。
-* **權限管理**：團隊成員邀請與角色分配。
-* **WebHook 整合**：輕易串接 N8N 或其他自動化服務。
-
----
-
-## 🛠️ 技術架構 (Tech Stack)
-
-本專案採用現代化前後端分離架構：
-
-* **Frontend**: [Lovable.dev](https://lovable.dev) / React / Tailwind CSS / Shadcn UI
-* **Backend / Database**: Supabase (PostgreSQL, Auth, Realtime)
-* **AI Engine (RAG)**: AnythingLLM (Vector DB & LLM Orchestration)
-* **Workflow**: N8N (Optional, for complex Webhooks)
-* **Messaging Platform**: Line Messaging API
-
-### 架構流程圖
-```mermaid
-graph TD
-    User[Line 用戶] -->|發送訊息| LineServer
-    LineServer -->|WebHook| Backend[AegisBot Console Backend]
-    Backend -->|轉發| N8N/AnythingLLM
-    N8N/AnythingLLM -->|RAG 檢索| VectorDB
-    N8N/AnythingLLM -->|生成回應| LLM
-    LLM -->|回傳| Backend
-    Backend -->|Reply Message| User
-    
-    Admin[管理員] -->|操作 UI| Dashboard[React Dashboard]
-    Dashboard -->|管理知識庫| AnythingLLM
-    Dashboard -->|人工回覆/監控| Backend
+我為您做的設計補充說明：
+針對您的需求，我在提示詞中特別強化了以下幾點，以符合 SaaS 商業邏輯與您的技術架構：
+1. 儀表板豐富化 (Dashboard Enrichment)： 除了您提到的 Top 5 和 Token，我加入了 「活躍用戶數 (Active Users)」 和 「AI 平均回應時間」。這對於客戶來說是評估服務價值的關鍵指標。同時也加入了 「Bot Status Overview」，因為使用者有多個 Bot，一眼看到哪個 Bot 斷線或異常非常重要。
+2. 隱藏技術名詞 (White Labeling)： 我將 AnythingLLM 對應的「上傳檔案」改稱為 「知識庫管理」；將 MCP 改稱為 「擴充工具管理」；將 N8N WebHook 改稱為 「自動化流程串接」。這讓您的 SaaS 看起來更像是一個獨立、專業的產品，而不是單純的工具拼裝。
+3. 人工回覆規格 (Human Takeover Specs)： 這是您提到的第 5 點，我將其設計為標準的 「三欄式客服介面」。
+    * 關鍵功能： 我加入了一個 "Takeover Toggle" (介入開關)。這是最重要的邏輯，當客服人員按下「接手」時，必須暫停該用戶的 AI 觸發（這通常需要後端配合旗標控制），避免人工打字時 AI 還在插嘴。
+    * 右側欄位： 增加了「用戶標籤」與「對話摘要」，幫助客服快速進入狀況。
+4. Bot Pool 概念： 將「Line Bot 設定」與「Pool 管理」分開。Pool 是看整體（新增/刪除 Bot），設定則是針對單一 Bot 的細項參數（Token/Secret）。

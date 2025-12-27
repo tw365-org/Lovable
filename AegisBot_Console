@@ -77,7 +77,7 @@ This page is critical for customer support. It should function like a chat appli
         * Canned Responses: Quick-click buttons for common replies.
         * Summary: A brief AI-generated summary of the conversation so far.
 
-我為您做的設計補充說明：
+Gemini 幫忙做的設計補充說明：
 針對您的需求，我在提示詞中特別強化了以下幾點，以符合 SaaS 商業邏輯與您的技術架構：
 1. 儀表板豐富化 (Dashboard Enrichment)： 除了您提到的 Top 5 和 Token，我加入了 「活躍用戶數 (Active Users)」 和 「AI 平均回應時間」。這對於客戶來說是評估服務價值的關鍵指標。同時也加入了 「Bot Status Overview」，因為使用者有多個 Bot，一眼看到哪個 Bot 斷線或異常非常重要。
 2. 隱藏技術名詞 (White Labeling)： 我將 AnythingLLM 對應的「上傳檔案」改稱為 「知識庫管理」；將 MCP 改稱為 「擴充工具管理」；將 N8N WebHook 改稱為 「自動化流程串接」。這讓您的 SaaS 看起來更像是一個獨立、專業的產品，而不是單純的工具拼裝。
